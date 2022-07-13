@@ -1,0 +1,14 @@
+{
+  "name": "jwt-auth-nodejs",
+  "version": "1.0.0",
+  "description": "learning json web token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jwt"
+  ],
+  "author": "vernandodev",
+  "license": "ISC"
+}
