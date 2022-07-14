@@ -123,7 +123,7 @@ router.post('/login', async (req, res) => {
   });
 
   // set refresh token in refreshTokens array
-  refreshToken.push(refreshToken);
+  refreshTokens.push(refreshToken);
 
   res.json({
     accessToken,
@@ -131,7 +131,7 @@ router.post('/login', async (req, res) => {
   });
 });
 
-let refreshToken = [];
+let refreshTokens = [];
 
 // Create new access token from refresh token
 router.post('/token', async (req, res) => {
