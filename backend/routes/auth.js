@@ -149,7 +149,7 @@ router.post('/token', async (req, res) => {
   }
 
   // if token does not exist, send error message
-  if (!refreshToken.includes(refreshToken)) {
+  if (!refreshTokens.includes(refreshToken)) {
     res.status(403).json({
       errors: [
         {
@@ -176,17 +176,16 @@ router.post('/token', async (req, res) => {
         },
       ],
     });
-
-    // Deauthenticate - logout
-    // delete resfresh token
-
-    router.delete('/logout', (req, res) => {
-      const refreshToken = req.header('x-auth-token');
-
-      refreshToken = refreshToken.filter((token) => token !== refreshToken);
-      res.sendStatus(204);
-    });
   }
+
+  // Deauthenticate - log out
+  // Delete refresh token
+  router.delete('/logout', (req, res) => {
+    const refreshToken = req.header('x-auth-token');
+
+    refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
+    res.sendStatus(204);
+  });
 });
 
 module.exports = router;
